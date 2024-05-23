@@ -23,10 +23,15 @@
             </thead>
 
             <tbody>
+                       <!--   list에 저장된 board 객체를 하나씩 가져와서 board 에 저장 -->
                 <tr th:each="board : ${list}">
-                    <td th:text="${board.id}">1</td>
-                    <td th:text="${board.title}">제목입니다.</td>
+                    <td th:text="${board.id}"></td>
+                    <td>
+                             <!--제목 링크 클릭시 상세페이지로 넘어감 (localhost:8080/board/view?board.id) -->
+                        <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
+                    </td>
                 </tr>
+
             </tbody>
         </table>
     </div>
