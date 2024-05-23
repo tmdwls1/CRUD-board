@@ -2,38 +2,49 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>게시물 리스트 페이지</title>
+    <title>게시글 리스트 페이지</title>
+</head>
+
 <style>
+
     .layout {
         width : 500px;
         margin : 0 auto;
         margin-top : 40px;
     }
+
 </style>
 
-</head>
 <body>
-    <div class ="layout">
-        <table>
-            <thead>
-            <tr>
-                <td>글번호</td>
-                <td >제목</td>
-            </tr>
-            </thead>
 
-            <tbody>
-                       <!--   list에 저장된 board 객체를 하나씩 가져와서 board 에 저장 -->
-                <tr th:each="board : ${list}">
-                    <td th:text="${board.id}"></td>
-                    <td>
-                             <!--제목 링크 클릭시 상세페이지로 넘어감 (localhost:8080/board/view?board.id) -->
-                        <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
-                    </td>
-                </tr>
+<div class="layout">
 
-            </tbody>
-        </table>
-    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>글번호</th>
+            <th>제목</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="board : ${list}">
+            <td th:text="${board.id}">1</td>
+            <td>
+                <a th:text="${board.title}" th:href="@{/board/view(id=${board.id})}"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+        <a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
+        <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
+    </th:block>
+    <form th:action="@{/board/list}" method="get">
+        <input type="text" name="searchKeyword">
+        <button type="submit">검색</button>
+    </form>
+</div>
+
 </body>
 </html>
