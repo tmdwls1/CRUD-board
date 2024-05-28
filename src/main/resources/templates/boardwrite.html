@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 작성폼</title>
+    <link rel="stylesheet" type="text/css" href="/src/main/resources/templates/css/boardwrite.css">
+</head>
+<body>
+<script>
+    function alert_f(form) {
+        alert("글 작성이 완료되었습니다");
+        form.submit();
+    }
+</script>
+<div class="layout">
+    <form action="/board/writepro" method="post">
+        <input name="title" type="text">
+        <textarea name="content"></textarea>
+        <button type="button" onclick="alert_f(this.form)">작성</button>
+    </form>
+</div>
+</body>
+</html>
