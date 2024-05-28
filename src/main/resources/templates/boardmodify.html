@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시물 작성폼</title>
+    <link rel="stylesheet" type="text/css" href="boardmodify.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .layout {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 40px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .layout input,
+        .layout textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        .layout textarea {
+            width : 100%;
+            margin-top : 10px;
+            min-height : 300px;
+        }
+        .layout button {
+            background-color: #69cdaa;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .layout button:hover {
+            background-color: #5ab99e;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function alert_f(){
+        alert("수정 되었습니다.")
+    }
+</script>
+<div class="layout">
+    <form th:action="@{/board/update/{id}(id = ${board.id})}" method="post">
+        <input name="title" type="text" th:value="${board.title}">
+        <textarea name="content" th:text="${board.content}"></textarea>
+        <button type="submit" onclick="alert_f()">수정</button>
+    </form>
+</div>
+</body>
+</html>
