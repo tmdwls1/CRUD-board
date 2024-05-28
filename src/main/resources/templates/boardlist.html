@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>게시글 리스트 페이지</title>
     <style>
-        body {a
-            font-family: Arial, sans-serif;d
+        body {
+            font-family: Arial, sans-serif;
             background-color: #f9f9f9;
         }
 
@@ -61,6 +61,28 @@
         button[type="submit"]:hover {
             background-color: #0056b3;
         }
+
+        .search-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .search-form input[type="text"] {
+            width: 30%;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination a, .pagination strong {
+            margin: 0 5px;
+        }
+
+        .pagination strong {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -84,11 +106,14 @@
         </tbody>
     </table>
 
-    <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
-        <a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
-        <strong th:if="${page == nowPage}" th:text="${page}" style="color : red"></strong>
-    </th:block>
-    <form th:action="@{/board/list}" method="get">
+    <div class="pagination">
+        <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+            <a th:if="${page != nowPage}" th:href="@{/board/list(page=${page - 1}, searchKeyword=${param.searchKeyword})}" th:text="${page}"></a>
+            <strong th:if="${page == nowPage}" th:text="${page}"></strong>
+        </th:block>
+    </div>
+
+    <form class="search-form" th:action="@{/board/list}" method="get">
         <input type="text" name="searchKeyword">
         <button type="submit">검색</button>
     </form>
