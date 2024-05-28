@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>게시글 상세 페이지</title>
-    <link rel="stylesheet" type="text/css" href="/src/main/resources/templates/css/boardview.css">
+    <link rel="stylesheet" type="text/css" href="boardview.css">
 </head>
 <body>
 <script>
@@ -17,7 +17,6 @@
 <p th:text="${board.content}">내용이 들어갈 부분 입니다</p>
 <a th:href="@{/board/delete(id=${board.id})}" onclick="alert_f()">글삭제</a>
 <a th:href="@{/board/modify/{id}(id = ${board.id})}" >글수정</a>
-
 
 </body>
 </html>

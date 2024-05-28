@@ -3,7 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>게시물 작성폼</title>
-    <link rel="stylesheet" type="text/css" href="/src/main/resources/templates/css/boardwrite.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+        .layout {
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 40px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .layout input,
+        .layout textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        .layout textarea {
+            width : 100%;
+            margin-top : 10px;
+            min-height : 300px;
+        }
+        .layout button {
+            background-color: #69cdaa;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .layout button:hover {
+            background-color: #5ab99e;
+        }
+    </style>
 </head>
 <body>
 <script>
