@@ -17,6 +17,7 @@
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         table {
@@ -49,7 +50,7 @@
             border-radius: 5px;
         }
 
-        button[type="submit"] {
+        button[type="submit"], button[type="button"] {
             padding: 5px 10px;
             background-color: #007bff;
             color: #ffffff;
@@ -58,7 +59,7 @@
             cursor: pointer;
         }
 
-        button[type="submit"]:hover {
+        button[type="submit"]:hover, button[type="button"]:hover {
             background-color: #0056b3;
         }
 
@@ -69,6 +70,10 @@
 
         .search-form input[type="text"] {
             width: 30%;
+        }
+
+        .search-form button {
+            margin-left: 10px;
         }
 
         .pagination {
@@ -83,12 +88,17 @@
         .pagination strong {
             color: red;
         }
+
+        .button-container {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
     </style>
 </head>
 <body>
 
 <div class="layout">
-
     <table>
         <thead>
         <tr>
@@ -117,7 +127,10 @@
         <input type="text" name="searchKeyword">
         <button type="submit">검색</button>
     </form>
+
+    <div class="button-container">
+        <button type="button" onclick="location.href='/board/write'">글 작성</button>
+    </div>
 </div>
-ㅑ
 </body>
 </html>
